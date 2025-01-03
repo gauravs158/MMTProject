@@ -101,4 +101,14 @@ public class HomePageLocaters {
 			}
 		}
 	}
+
+	public void enterDateOfTravel() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void enterTravellerDetails() {
+		// TODO Auto-generated method stub
+		
+	}
 }
