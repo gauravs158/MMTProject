@@ -110,7 +110,7 @@ public class HomePageLocaters {
 	public void enterTravellerDetails() {
 		// TODO Auto-generated method stub
 		
-		noOfAdults.sendKeys("2");
+		noOfAdults.sendKeys("1");
 		noOfChildren.sendKeys("1");
 		noOfInfants.sendKeys("2");
 		
