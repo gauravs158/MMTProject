@@ -276,7 +276,6 @@
 							<goal>copy-resources</goal>
 						</goals>
 						<configuration>
-							<release>17</release>
 							<outputDirectory>${basedir}/ExecutionReport-${timestamp}/</outputDirectory>
 							<resources>
 								<resource>
