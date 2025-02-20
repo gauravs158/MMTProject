@@ -18,50 +18,94 @@ public class HomePageLocaters {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy()
+	@FindBy(xpath="//span[@class='commonModal__close']")
 	WebElement popupClose;
 	
-	@FindBy(xpath = "//span[normalize-space()='From']")
-	WebElement from;
-
-	String fromCityList = "//div[normalize-space()='BBI']";
+	@FindBy(xpath="//li[@data-cy='oneWayTrip']/span")
+	WebElement oneWay;
 	
-	@FindBy(className = "lbl_input appendBottom10")
+	@FindBy(xpath="//li[@data-cy='roundTrip']/span")
+	WebElement roundTrip;
+	
+	@FindBy(xpath="//li[@data-cy='mulitiCityTrip']/span")
+	WebElement multiCityTrip;
+	
+	@FindBy(id = "fromCity")
+	WebElement from;
+	
+	String fromAutoSuggestList = "//div[normalize-space()='BBI']";
+			
+	@FindBy(xpath = "//input[@placeholder='From']")
+	WebElement fromTextBox;
+	
+	@FindBy(id = "toCity")
 	WebElement to;
 	
-	String toCityList = "//div[normalize-space()='DEL']";
+	@FindBy(xpath = "//input[@placeholder='To']")
+	WebElement toTextBox;
 	
-	@FindBy()
+	String toAutoSuggestList = "//span[normalize-space()='DEL']";
+	
+	@FindBy(xpath="//div[@class='DayPicker-Day DayPicker-Day--selected']")
 	WebElement departureDate;
 	
+	@FindBy(xpath="//span[contains(text(),\"Travellers & Class\")]")
+	WebElement travellerAndClass;	
+	
 	@FindBy()
+	WebElement returnDate;
+	
+	@FindBy(xpath="(//li[@data-cy='adults-2'])")
 	WebElement noOfAdults;
 	
-	@FindBy()
+	//String nofAdults = "(//li[@data-cy='adults-"+number+"'])";
+	
+	@FindBy(xpath="(//li[@data-cy='children-2'])")
 	WebElement noOfChildren;
 	
-	@FindBy()
+	@FindBy(xpath="(//li[@data-cy='infants-2'])")
 	WebElement noOfInfants;
 	
-	@FindBy()
+	@FindBy(xpath="(//li[@data-cy='travelClass-3'])")
 	WebElement chooseTravelClass;
 	
-	@FindBy()
+	@FindBy(xpath="(//button[@data-cy='travellerApplyBtn'])")
 	WebElement applyButton;
 	
-	@FindBy()
+	@FindBy(xpath="(//p[@data-cy='travellerText'])")
+	WebElement travellerCountAsDisplayed;
+	
+	@FindBy(xpath="//a[normalize-space()='Search']")
 	WebElement searchButton;
 	
 	
+	public void closePopup() {
+        
+        if(popupClose.isDisplayed())
+        {
+            popupClose.click();
+        }
+	}
 	
+	public void chooseTripType(String tripType) {
+		
+		if(tripType.equalsIgnoreCase("oneWay")) {
+			oneWay.click();
+		}
+		else if(tripType.equalsIgnoreCase("roundTrip")) {
+			roundTrip.click();
+		}
+		else if(tripType.equalsIgnoreCase("multiCityTrip")) {
+			multiCityTrip.click();
+		}
+	}
 	
 	public void enterFromCity() throws InterruptedException{
 		
 		if(from.isEnabled())
 		{
 			from.click();
-//			hsnCode.sendKeys("0402")
-			dropdownList(from, "BBI", fromCityList);
+			dropdownList(fromTextBox, "BBI", fromAutoSuggestList);
 		}
 		
 		System.out.println("From city entered completed.");
@@ -69,27 +113,53 @@ public class HomePageLocaters {
 	
 	public void enterToCity() throws InterruptedException{
 		
-		if(from.isEnabled())
+		if(to.isEnabled())
 		{
-			from.click();
-//			hsnCode.sendKeys("0402")
-			dropdownList(to, "DEL", toCityList);
+			to.click();
+			dropdownList(toTextBox, "DEL", toAutoSuggestList);
 		}
 		
 		System.out.println("To city entered completed.");
 	}
+
+	public void enterDateOfTravel() {
+		
+		departureDate.click();
+	}
+
+	public void enterDateOfReturn() {
+		
+		returnDate.click();
+	}
+
+	public void enterTravellerDetails() {
+		
+		travellerAndClass.click();
+		noOfAdults.click();
+		noOfChildren.click();
+		noOfInfants.click();
+		applyButton.click();
+		System.out.println(travellerCountAsDisplayed.getText());
+		searchFlights();
+	}
 	
-	public void dropdownList(WebElement webele, String value, String path) throws InterruptedException {
-		Thread.sleep(2000);
+	public void searchFlights() {
+
+		searchButton.click();
+		driver.quit();
+	}
+	
+	public void dropdownList(WebElement webele, String value, String element) throws InterruptedException {
+		//Thread.sleep(2000);
 		webele.sendKeys(value);
-		Thread.sleep(5000);
-		List<WebElement> we = driver.findElements(By.xpath(path));
-		Thread.sleep(5000);
+		//Thread.sleep(2000);
+		List<WebElement> we = driver.findElements(By.xpath(element));
+		//Thread.sleep(5000);
 		System.out.println(we.size());
 		
 		for(WebElement option : we)
 		{
-			Thread.sleep(2000);
+			//Thread.sleep(2000);
 			System.out.println(option.getText());
 			
 			if(option.getText().equalsIgnoreCase(value)) {
@@ -100,19 +170,5 @@ public class HomePageLocaters {
 				break;
 			}
 		}
-	}
-
-	public void enterDateOfTravel() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void enterTravellerDetails() {
-		// TODO Auto-generated method stub
-		
-		noOfAdults.sendKeys("22");
-		noOfChildren.sendKeys("21");
-		noOfInfants.sendKeys("2");
-		
 	}
 }
