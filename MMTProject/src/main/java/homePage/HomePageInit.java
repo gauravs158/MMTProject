@@ -33,6 +33,8 @@ public class HomePageInit {
 			//Thread.sleep(2000);
 			hpl.enterTravellerDetails();
 			//Thread.sleep(2000);
+
+			driver.quit();
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -146,7 +146,6 @@ public class HomePageLocaters {
 	public void searchFlights() {
 
 		searchButton.click();
-		driver.quit();
 	}
 	
 	public void dropdownList(WebElement webele, String value, String element) throws InterruptedException {
