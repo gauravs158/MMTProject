@@ -10,7 +10,7 @@ import homePage.HomePageInit;
 
 public class BrowserInitiate{
 
-	public static void main(String[] args) {
+	public static void start() {
 		
 			WebDriver driver = new ChromeDriver();
 			driver.manage().window().maximize(); 
