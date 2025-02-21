@@ -18,18 +18,16 @@ public class WaitUtility {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
-	
 	// explicit wait 
 	private static void explicitwait(String xpath)
 	{
 		
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-	       wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+			wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+	        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
 	}
 	
-	// Implicit wait 
-	private static void implicitwait()
+	// Fluent wait
+	private static void fluentWait()
 	{
 		
 	}

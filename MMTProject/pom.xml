@@ -126,6 +126,12 @@
 		    <artifactId>cucumber-java</artifactId>
 		    <version>7.12.1</version>
 		</dependency>-->
+	  <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+	  <dependency>
+		  <groupId>io.cucumber</groupId>
+		  <artifactId>cucumber-java</artifactId>
+		  <version>7.21.1</version>
+	  </dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
 			<artifactId>commons-io</artifactId>
@@ -183,7 +189,7 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.22.1</version>
 				<configuration>
-					<release>17</release>
+					<!--<release>17</release>-->
 					<suiteXmlFiles>
 						<suiteXmlFile>testNG.xml</suiteXmlFile>
 					</suiteXmlFiles>
@@ -226,35 +232,37 @@
 						<version>${aspectj.version}</version>
 					</dependency>
 					<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
-<dependency>
-    <groupId>com.google.code.gson</groupId>
-    <artifactId>gson</artifactId>
-    <version>2.11.0</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/com.squareup.retrofit2/converter-gson -->
-<dependency>
-    <groupId>com.squareup.retrofit2</groupId>
-    <artifactId>converter-gson</artifactId>
-    <version>2.11.0</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/org.json/json -->
-<dependency>
-    <groupId>org.json</groupId>
-    <artifactId>json</artifactId>
-    <version>20240303</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path -->
-<dependency>
-    <groupId>com.jayway.jsonpath</groupId>
-    <artifactId>json-path</artifactId>
-    <version>2.9.0</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-<dependency>
-    <groupId>com.fasterxml.jackson.core</groupId>
-    <artifactId>jackson-databind</artifactId>
-    <version>2.18.2</version>
-</dependency>
+					<dependency>
+						<groupId>com.google.code.gson</groupId>
+						<artifactId>gson</artifactId>
+						<version>2.11.0</version>
+					</dependency>
+					<!-- https://mvnrepository.com/artifact/com.squareup.retrofit2/converter-gson -->
+					<dependency>
+						<groupId>com.squareup.retrofit2</groupId>
+						<artifactId>converter-gson</artifactId>
+						<version>2.11.0</version>
+					</dependency>
+					<!-- https://mvnrepository.com/artifact/org.json/json -->
+					<dependency>
+						<groupId>org.json</groupId>
+						<artifactId>json</artifactId>
+						<version>20240303</version>
+					</dependency>
+					<!-- https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path -->
+					<dependency>
+						<groupId>com.jayway.jsonpath</groupId>
+						<artifactId>json-path</artifactId>
+						<version>2.9.0</version>
+					</dependency>
+					<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+					<dependency>
+						<groupId>com.fasterxml.jackson.core</groupId>
+						<artifactId>jackson-databind</artifactId>
+						<version>2.18.2</version>
+					</dependency>
+
+
 
 				</dependencies>
 			</plugin>

@@ -36,7 +36,6 @@ public class HomePageInit {
 
 			driver.quit();
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
