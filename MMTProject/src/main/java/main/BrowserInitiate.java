@@ -12,10 +12,11 @@ import utilities.DriverSetup;
 
 public class BrowserInitiate{
 
-	@Test
-	public static void main(String[] args) {
-
-			WebDriver driver = DriverSetup.initiateBrowser();
+	public static void start() {
+		
+			WebDriver driver = new ChromeDriver();
+			driver.manage().window().maximize(); 
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 			driver.navigate().to("https://www.makemytrip.com");
 			HomePageInit hpi = new HomePageInit(driver);
 			hpi.initExecution();
